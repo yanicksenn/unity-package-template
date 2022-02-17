@@ -4,8 +4,12 @@ replace() {
   label=$1
   key=$2
   files=$3
+  input=$4
   
-  read -p "$label: " input
+  if [ ! -n "$input" ]; then
+    read -p "$label: " input
+  fi
+  
   sed -i "" "s/$key/$input/g" ${files[@]}
 }
 
@@ -22,11 +26,12 @@ test_runtime_assembly=Tests/Runtime/__TODO_TEST_ASSEMBLY_NAME__.asmdef
 assemblies=($runtime_assembly $test_runtime_assembly)
 
 replace "Assembly Name" "__TODO_ASSEMBLY_NAME__" $assemblies
+replace "Test Assembly Name" "__TODO_TEST_ASSEMBLY_NAME__" $test_runtime_assembly $input
+
 replace "Assembly Namespace" "__TODO_ASSEMBLY_NAMESPACE__" $assemblies
 mv $runtime_assembly "Runtime/$input.asmdef"
 
-replace "Test Assembly Name" "__TODO_TEST_ASSEMBLY_NAME__" $assemblies
-replace "Test Assembly Namespace" "__TODO_TEST_ASSEMBLY_NAMESPACE__" $assemblies
+replace "Test Assembly Namespace" "__TODO_TEST_ASSEMBLY_NAMESPACE__" $test_runtime_assembly
 mv $test_runtime_assembly "Tests/Runtime/$input.asmdef"
 
 echo "Setup done."
