@@ -1,0 +1,14 @@
+{
+  "name": "__TODO_NAME__",
+  "version": "__TODO_VERSION__",
+  "displayName": "__TODO_DISPLAY_NAME__",
+  "description": "__TODO_DESCRIPTION__",
+  "unity": "2020.3",
+  "unityRelease": "14f1",
+  "dependencies": { },
+  "keywords": [ ],
+  "author": {
+    "name": "__TODO_AUTHOR_NAME__",
+    "email": "__TODO_AUTHOR_EMAIL__"
+  }
+}

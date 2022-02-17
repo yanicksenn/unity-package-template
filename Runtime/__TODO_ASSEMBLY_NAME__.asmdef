@@ -1,0 +1,14 @@
+{
+    "name": "__TODO_ASSEMBLY_NAME__",
+    "rootNamespace": "__TODO_ASSEMBLY_NAMESPACE__",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [ ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
