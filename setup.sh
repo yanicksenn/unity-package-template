@@ -26,7 +26,9 @@ read_and_replace_in_files() {
   echo "$value"
 }
 
-files=(package.json README.md)
+runtime_assembly="Runtime/__TODO_ASSEMBLY_NAME__.asmdef"
+runtime_test_assembly="Tests/Runtime/__TODO_TEST_ASSEMBLY_NAME__.asmdef"
+files=("package.json" "README.md" "$runtime_assembly" "$runtime_test_assembly")
 
 pkg_name="$(read_and_replace_in_files "Name" "__TODO_NAME__" $files)"
 pkg_version="$(read_and_replace_in_files "Version" "__TODO_VERSION__" $files)"
@@ -35,12 +37,14 @@ pkg_description="$(read_and_replace_in_files "Description" "__TODO_DESCRIPTION__
 pkg_author_name="$(read_and_replace_in_files "Author Name" "__TODO_AUTHOR_NAME__" $files)"
 pkg_author_email="$(read_and_replace_in_files "Author Email" "__TODO_AUTHOR_EMAIL__" $files)"
 
-echo $pkg_name
-echo $pkg_version
-echo $pkg_display_name
-echo $pkg_description
-echo $pkg_author_name
-echo $pkg_author_email
+pkg_assembly_name="$(read_and_replace_in_files "Assembly Name" "__TODO_ASSEMBLY_NAME__" $files)"
+pkg_assembly_namespace="$(read_and_replace_in_files "Assembly Namespace" "__TODO_ASSEMBLY_NAMESPACE__" $files)"
+
+replace_in_files "__TODO_TEST_ASSEMBLY_NAME__" "$pkg_assembly_name.Tests" $files
+replace_in_files "__TODO_TEST_ASSEMBLY_NAMESPACE__" "$pkg_assembly_namespace.Tests" $files
+
+mv "$runtime_assembly" "Runtime/$pkg_assembly_name.asmdef"
+mv "$runtime_test_assembly" "Tests/Runtime/$pkg_assembly_name.Tests.asmdef"
 
 #runtime_assembly=Runtime/__TODO_ASSEMBLY_NAME__.asmdef
 #test_runtime_assembly=Tests/Runtime/__TODO_TEST_ASSEMBLY_NAME__.asmdef
