@@ -12,39 +12,28 @@ read_from_input() {
   label=$1
   
   read -p "$label: " value
-  return $value
+  echo "$value"
 }
 
 read_and_replace_in_files() {
-  label=$1
-  key=$2
-  files=$3
+  local label=$1
+  local key=$2
+  local files=$3
   
-  read_from_input $label
-  value=$?
+  local value=$(read_from_input $label)
   
-  replace_in_files $key $value $files
-  return $value
+  replace_in_files "$key" "$value" $files
+  echo "$value"
 }
 
 files=(package.json README.md)
-read_and_replace_in_files "Name" __TODO_NAME__ $files
-$pkg_name=$?
 
-read_and_replace_in_files "Version" __TODO_VERSION__ $files
-$pkg_version=$?
-
-read_and_replace_in_files "Display Name" __TODO_DISPLAY_NAME__ $files
-$pkg_display_name=$?
-
-read_and_replace_in_files "Description" __TODO_DESCRIPTION__ $files
-$pkg_description=$?
-
-read_and_replace_in_files "Author Name" __TODO_AUTHOR_NAME__ $files
-$pkg_author_name=$?
-
-read_and_replace_in_files "Author Email" __TODO_AUTHOR_EMAIL__ $files
-$pkg_author_email=$?
+pkg_name="$(read_and_replace_in_files "Name" "__TODO_NAME__" $files)"
+pkg_version="$(read_and_replace_in_files "Version" "__TODO_VERSION__" $files)"
+pkg_display_name="$(read_and_replace_in_files "Display Name" "__TODO_DISPLAY_NAME__" $files)"
+pkg_description="$(read_and_replace_in_files "Description" "__TODO_DESCRIPTION__" $files)"
+pkg_author_name="$(read_and_replace_in_files "Author Name" "__TODO_AUTHOR_NAME__" $files)"
+pkg_author_email="$(read_and_replace_in_files "Author Email" "__TODO_AUTHOR_EMAIL__" $files)"
 
 echo $pkg_name
 echo $pkg_version
