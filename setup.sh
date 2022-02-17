@@ -18,7 +18,7 @@ replace "Author Name" __TODO_AUTHOR_NAME__ $files
 replace "Author Email" __TODO_AUTHOR_EMAIL__ $files
 
 runtime_assembly=Runtime/__TODO_ASSEMBLY_NAME__.asmdef
-test_runtime_assembly=Tests/Runtime/__TODO_test_runtime_assembly_NAME__.asmdef
+test_runtime_assembly=Tests/Runtime/__TODO_TEST_ASSEMBLY_NAME__.asmdef
 assemblies=($runtime_assembly $test_runtime_assembly)
 
 replace "Assembly Name" "__TODO_ASSEMBLY_NAME__" $assemblies
