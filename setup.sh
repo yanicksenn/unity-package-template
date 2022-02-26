@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
 
 replace_in_files() {
   local key=$1
@@ -70,6 +72,12 @@ pkg_test_editor_assembly_name="$pkg_assembly_name.Editor.Tests"
 pkg_test_editor_assembly_namespace="$pkg_assembly_namespace.Editor.Tests"
 
 confirm "Continue with setup?"
+
+echo "Remove $(pwd)/.git"
+rm -rf .git
+
+echo "Remove $(pwd)/README.md"
+rm -rf README.md
 
 runtime_assembly="Runtime/__TODO_ASSEMBLY_NAME__.asmdef"
 test_runtime_assembly="Tests/Runtime/__TODO_TEST_ASSEMBLY_NAME__.asmdef"
