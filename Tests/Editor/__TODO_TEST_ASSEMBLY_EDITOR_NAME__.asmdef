@@ -1,10 +1,11 @@
 {
-    "name": "__TODO_TEST_ASSEMBLY_NAME__",
-    "rootNamespace": "__TODO_TEST_ASSEMBLY_NAMESPACE__",
+    "name": "__TODO_TEST_ASSEMBLY_EDITOR_NAME__",
+    "rootNamespace": "__TODO_TEST_ASSEMBLY_EDITOR_NAMESPACE__",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "__TODO_ASSEMBLY_NAME__"
+        "__TODO_ASSEMBLY_NAME__",
+        "__TODO_ASSEMBLY_EDITOR_NAME__"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

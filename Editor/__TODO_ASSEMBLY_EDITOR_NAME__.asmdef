@@ -1,0 +1,16 @@
+{
+    "name": "__TODO_ASSEMBLY_EDITOR_NAME__",
+    "rootNamespace": "",
+    "references": [
+        "GUID:adb4d09a599a742ed9a7d9a627f702af"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
