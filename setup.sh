@@ -36,7 +36,7 @@ read_and_replace_in_files() {
 confirm() {
   local message=$1
 
-  read -r -p "$message [y/N]" response
+  read -r -p "$message [y/N]: " response
   case "$response" in
       [yY][eE][sS]|[yY])
           true
@@ -85,6 +85,17 @@ files=( \
   "$editor_assembly" \
   "$test_editor_assembly")
 
+template_suffix="templ"
+
+
+echo "Unpacking template files ..."
+for file in "${files[@]}"
+do
+  mv "$file.$template_suffix" "$file"
+done
+
+
+echo "Replacing placeholders ..."
 replace_in_files "__TODO_NAME__" "$pkg_name" "${files[@]}"
 replace_in_files "__TODO_VERSION__" "$pkg_version" "${files[@]}"
 replace_in_files "__TODO_DISPLAY_NAME__" "$pkg_display_name" "${files[@]}"
@@ -104,9 +115,10 @@ replace_in_files "__TODO_ASSEMBLY_EDITOR_NAMESPACE__" "$pkg_editor_assembly_name
 replace_in_files "__TODO_TEST_ASSEMBLY_EDITOR_NAME__" "$pkg_test_editor_assembly_name" "${files[@]}"
 replace_in_files "__TODO_TEST_ASSEMBLY_EDITOR_NAMESPACE__" "$pkg_test_editor_assembly_namespace" "${files[@]}"
 
+
+echo "Rename file ..."
 mv "$runtime_assembly" "Runtime/$pkg_assembly_name.asmdef"
 mv "$test_runtime_assembly" "Tests/Runtime/$pkg_assembly_name.Tests.asmdef"
-
 mv "$editor_assembly" "Editor/$pkg_assembly_name.Editor.asmdef"
 mv "$test_editor_assembly" "Tests/Editor/$pkg_assembly_name.Editor.Tests.asmdef"
 
