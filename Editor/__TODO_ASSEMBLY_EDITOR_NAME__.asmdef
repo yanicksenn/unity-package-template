@@ -2,7 +2,8 @@
     "name": "__TODO_ASSEMBLY_EDITOR_NAME__",
     "rootNamespace": "",
     "references": [
-        "GUID:adb4d09a599a742ed9a7d9a627f702af"
+        "GUID:adb4d09a599a742ed9a7d9a627f702af",
+        "__TODO_ASSEMBLY_NAME__"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
