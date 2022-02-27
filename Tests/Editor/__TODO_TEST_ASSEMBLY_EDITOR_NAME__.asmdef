@@ -7,8 +7,9 @@
         "__TODO_ASSEMBLY_NAME__",
         "__TODO_ASSEMBLY_EDITOR_NAME__"
     ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
