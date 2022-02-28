@@ -3,8 +3,8 @@
   "version": "__TODO_VERSION__",
   "displayName": "__TODO_DISPLAY_NAME__",
   "description": "__TODO_DESCRIPTION__",
-  "unity": "2021.2",
-  "unityRelease": "12f1",
+  "unity": "__TODO_UNITY__",
+  "unityRelease": "__TODO_UNITY_RELEASE__",
   "dependencies": { },
   "keywords": [ ],
   "author": {
